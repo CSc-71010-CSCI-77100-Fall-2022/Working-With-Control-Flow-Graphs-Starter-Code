@@ -53,4 +53,4 @@
 
 1. Submit your code through GitHub by the deadline in Blackboard.
 
-1. Also submit, in Blackboard, answers to (d) and (e) above for jlex.
+1. Also submit, in Blackboard, answers to (a)-(e) above for jlex.

@@ -47,7 +47,7 @@
 
 1. Answer the following question:
 
-    d. Explain how the answer to (c) can be less than 0.
+    d. Explain how the answer to (c) can be less than 1.
     
     e. Explain each component of the block output. What do the numbers mean?
 

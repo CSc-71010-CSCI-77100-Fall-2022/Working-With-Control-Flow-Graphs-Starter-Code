@@ -3,11 +3,12 @@ package cta;
 import static com.ibm.wala.ipa.callgraph.impl.Util.makeMainEntrypoints;
 import static com.ibm.wala.ipa.callgraph.impl.Util.makeZeroCFABuilder;
 import static com.ibm.wala.types.ClassLoaderReference.Application;
-import static com.ibm.wala.util.config.AnalysisScopeReader.makeJavaBinaryAnalysisScope;
 
 import java.io.File;
 
 import com.ibm.wala.classLoader.IMethod;
+import com.ibm.wala.classLoader.Language;
+import com.ibm.wala.core.util.config.AnalysisScopeReader;
 import com.ibm.wala.ipa.callgraph.AnalysisCache;
 import com.ibm.wala.ipa.callgraph.AnalysisCacheImpl;
 import com.ibm.wala.ipa.callgraph.AnalysisOptions;
@@ -42,15 +43,15 @@ public class Main {
 		String classPath = args[0];
 
 		File exclusionsFile = new File(EXCLUSIONS_FILE_PATH_NAME);
-		AnalysisScope scope = makeJavaBinaryAnalysisScope(classPath, exclusionsFile);
+		AnalysisScope scope = AnalysisScopeReader.instance.makeJavaBinaryAnalysisScope(classPath, exclusionsFile);
 
 		ClassHierarchy hierarchy = ClassHierarchyFactory.make(scope);
-		Iterable<Entrypoint> entrypoints = makeMainEntrypoints(scope, hierarchy);
+		Iterable<Entrypoint> entrypoints = makeMainEntrypoints(hierarchy);
 
 		AnalysisOptions options = new AnalysisOptions(scope, entrypoints);
 		AnalysisCache cache = new AnalysisCacheImpl();
 
-		CallGraphBuilder<?> builder = makeZeroCFABuilder(options, cache, hierarchy, scope);
+		CallGraphBuilder<?> builder = makeZeroCFABuilder(Language.JAVA, options, cache, hierarchy, scope);
 		CallGraph graph = builder.makeCallGraph(options, null);
 
 		graph.forEach(node -> {

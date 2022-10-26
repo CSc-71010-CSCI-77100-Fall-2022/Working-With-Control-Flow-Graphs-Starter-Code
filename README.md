@@ -1,11 +1,11 @@
-# Working-With-Control-Flow-Graphs
+# Working With Control-Flow Graphs
 
-1. Visit https://classroom.github.com/a/FlVlyKXU and set up your repository.
+1. Visit https://classroom.github.com/a/PBW6Wpbc and set up your repository.
 
 1. Clone your repository, for example:
 
     ```bash
-    git clone https://github.com/Software-Analysis-and-Transformation/working-with-control-flow-graphs-khatchad.git
+    git clone https://github.com/CSc-71010-CSCI-77100-Fall-2022/working-with-control-flow-graphs-khatchad.git
     ```
 
 1. In the directory that gets created as a result of the clone, run the following (CTA means compile-time analysis).
@@ -36,7 +36,7 @@
     1. a tab and its taken successor on its own line.
 
     1. a tab and its not taken successor, also on its own line. 
-    
+
     For example, suppose we are processing the application method `LJLex/SparseBitSet$4.hasMoreElements()Z`, the method has only one block (block 4) that ends in a conditional instruction (with index 5), its taken successor is block 6, and its not taken successor is block 5. Then, the complete output for this method would be:
     ```
     Processing application method: < Application, LJLex/SparseBitSet$4, hasMoreElements()Z >

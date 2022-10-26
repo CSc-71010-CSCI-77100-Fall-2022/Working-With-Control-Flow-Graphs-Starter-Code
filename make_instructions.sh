@@ -1,3 +1,3 @@
 #!/bin/bash
-pandoc README.md -o instructions.html -f markdown_github --css pandoc.css
-xdg-open instructions.html
+pandoc --shift-heading-level-by=-1 -s README.md -o instructions.html -f gfm --css pandoc.css
+gio open instructions.html

@@ -2,3 +2,4 @@
 /target/
 instructions.html
 *.swp
+make_instructions.sh
